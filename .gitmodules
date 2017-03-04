@@ -1,0 +1,3 @@
+[submodule "jam_lib"]
+	path = jam_lib
+	url = D:\\jam_lib
