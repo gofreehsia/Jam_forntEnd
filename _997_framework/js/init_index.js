@@ -7,61 +7,90 @@ function setup(){
 	stater.checkState();
 	$(field_ACC).on("keyup",validateEM);
 	$(fieldCPW).on("keyup",checkPW);
-	//檢查密碼的動作放在招喚登入畫面的call裡面設定到背景動作。
-	/*
-    
-    termsAccept = $(agree_to_term),
-    regSubmit = $(btn_register);
-	*/
-}
+	$(btn_login.on("click",onLoginDown);
+	$(btn_continueFB.on("click",onLoginFBDown);
+	$(".nxx_login").on("click",tologin);
+	$(".nxx_signup").on("click",tosignup);
+	
+	
+	function onLoginDown(){
+		var info=new Object();
+		info.type="normal";
+		info.acc=$(field_ACC).val();
+		info.pw=$(field_PW).val();
+		mem.login(info,stater.onLogIn);
+	}
+	
+	function onLoginFBDown(){
+		var info=new Object();
+		info.type="FB";
+		mem.login(info,stater.onLogIn);
+	}
+	
+	function tologin(){
+		stater.em_for_login=true;
+	}
 
-function validateEM(){
-	var em=this.value;
-	
-	function checkStrange(){
-			//檢查是否含有奇怪的字元
+	function tosignup(){
+		stater.em_for_login=false;
 	}
 	
-	function validateEMOnLogin(){
-		if(checkStrange()){
-			//假設未含有奇怪字元
-		}else{
-			//含有奇怪字元
+	function validateEM(){
+		var em=this.value;
+		
+		
+		function validateEMcharacter(){
+			//假設沒有奇怪字元，回傳true
+			return true;
 		}
-	}
-	
-	function validateEMOnReg(){
-		if(checkStrange()){
-			mem.validateAcc(onValidate);
+		
+		function validateEMOnReg(){
+			if(validateEMcharacter()){
+				mem.validateAcc(onValidate);
+			}
 		}
-	}
-	
-	function onValidate(rst){
-		if(rst){
-			//帳號已存在		
+
+		//完成後要做的動作
+		function onValidate(rst){
+			if(rst){
+				console.log("帳號已存在");
+				}else{
+				console.log("帳號不存在");
+					}
+				
+		}
+		
+		if(stater.em_for_login){
+			if(validateEMcharacter()){
+					console.log("fine email");
 			}else{
-			//帳號不存在
-				}
-			
-	}
-	
-	if(stater.em_for){
-		validateEMOnlogin();
-	}else{
-		validateEMOnReg();
-	}
+					console.log("not fine email");
+			}
+		}
+		}else{
+				validateEMOnReg();
+		}
 	
 
 	
+	}
+
+
+	function checkPW(){
+		if($(fieldPW).val()==this.value){
+			console.log("same");
+		}else{
+			console.log("not same");
+		}
+		
+	}
+
 }
 
 
-function checkPW(){
-	if($(fieldPW).val()==this.value){
-		
-	}else{
-		
-	}
-	
-}
+
+
+
+
+
 
