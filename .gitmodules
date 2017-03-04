@@ -1,0 +1,4 @@
+[submodule "_997_framework/js2"]
+	path = _997_framework/js2
+	url = https://github.com/quiteAthing/jam_js_lib.git
+	branch = master
