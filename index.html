@@ -12,6 +12,19 @@
     <link rel="stylesheet" href="_997_framework/css/bootstrap-social.css">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
     <script src="_997_framework/js/carousel.js"></script>
+    <!--靜態內容-->
+    <!--所有連結用的內容tag均放置於此--><script src="_997_framework/js/linker.js"></script>
+    <script src="_997_framework/js/libs/memberFunction.js"></script>
+    <script src="_997_framework/js/libs/backgroundTasks.js"></script>
+    <script src="_997_framework/js/libs/stater.js"></script>
+    <script src="_997_framework/js/libs/message_system.js"></script>
+	<!--/靜態內容-->
+	
+	<!--網頁初始化與設定-->
+    <script src="_997_framework/js/init_index.js"></script>
+	<script src="_997_framework/js/main.js"></script>
+	<!--/網頁初始化與設定-->
+	
     <!--  <script src="login.js"></script> -->
     <title>index</title>
 </head>
@@ -34,8 +47,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- 登入前顯示 -->
-                    <li><a href="#" class="login">登入</a></li>
-                    <li><a href="#" class="signup">註冊</a></li>
+                    <li><a href="#" class="login nx_login">登入</a></li>
+                    <li><a href="#" class="signup nx_signup">註冊</a></li>
                     <!-- 登入後顯示 -->
                     <!--                    <li><a href="#"><i class="fa fa-envelope-o" fa-5x aria-hidden="true" ></i><span class="badge">1<span></a></li>
                     <li><a href="member.html" class="member-link">我的 Jam</a></li>
@@ -107,8 +120,8 @@
         <div class="user-modal-container">
             <!-- this is the container wrapper -->
             <ul class="switcher">
-                <li><a href="#0">登入</a></li>
-                <li><a href="#0">註冊</a></li>
+                <li><a href="#0" class="nx_login">登入</a></li>
+                <li><a href="#0" class="nx_signup">註冊</a></li>
             </ul>
             <div id="login">
                 <!-- log in form -->
@@ -166,7 +179,7 @@
                         <label for="accept-terms">我同意 <a href="#0" class="terms">使用條款與規範</a></label>
                     </p>
                     <p class="fieldset">
-                        <input class="full-width has-padding" id="reg-submit" type="submit" value="註冊">
+                        <input class="full-width has-padding" id="reg-submit" type="button" value="註冊">
                     </p>
                 </form>
                 <!-- <a href="#0" class="close-form">Close</a> -->

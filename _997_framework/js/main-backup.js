@@ -9,10 +9,16 @@ jQuery(document).ready(function($) {
         forgotPasswordLink = formLogin.find('.form-bottom-message a'),
         backToLoginLink = formForgotPassword.find('.form-bottom-message a'),
         mainNav = $('.main-nav'),
-        navRight = $('.nav');
-    
-	
-	//open sign-up form
+        navRight = $('.nav'),
+		//動作內容
+        signupEmail=$(field_ACC),
+        signupPassword = $(fieldPW),
+        passwordConfirm = $(fieldCPW),
+        termsAccept = $(agree_to_term),
+        regSubmit = $(btn_register);
+
+
+    //open sign-up form
     navRight.on('click', '.signup', signup_selected);
     //open login-form form
     navRight.on('click', '.login', login_selected);
@@ -36,6 +42,18 @@ jQuery(document).ready(function($) {
         ($(event.target).is(tabLogin)) ? login_selected(): signup_selected();
     });
 
+    //hide or show password
+    // $('.hide-password').on('click', function(){
+    //  var togglePass= $(this),
+    //      passwordField = togglePass.prev('input');
+
+    //  ( 'password' == passwordField.attr('type') ) ? passwordField.attr('type', 'text') : passwordField.attr('type', 'password');
+    //  ( '隱藏密碼' == togglePass.text() ) ? togglePass.text('顯示密碼') : togglePass.text('隱藏密碼');
+    //  //focus and move cursor to the end of input field
+    //  passwordField.putCursorAtEnd();
+    // });
+
+    //show forgot-password form 
     forgotPasswordLink.on('click', function(event) {
         event.preventDefault();
         forgot_password_selected();
@@ -58,6 +76,9 @@ jQuery(document).ready(function($) {
 
     //勾選同意條款
     termsAccept.on('click', this, submit_able);
+
+
+
 
     //驗證畫面按確認後回到主畫面
     $('.confirm-button').on('click', function() {
@@ -132,6 +153,93 @@ jQuery(document).ready(function($) {
             return true;
         }
     }
+
+
+
+    //--------------------------------------Member Page--------------------------------------------
+    // myJamEvent 收合
+    var myJamEvent = $('.my-jam-event-title');
+    var linkDiv = $('.my-jam-event-link');
+
+    myJamEvent.on('mouseover', function() {
+        myJamEvent.addClass('isopen');
+        linkDiv.fadeIn("slow");
+    });
+
+    linkDiv.on('mouseleave', function() {
+        myJamEvent.removeClass('isopen');
+        linkDiv.fadeOut("slow");
+    });
+
+
+
+    //..........會員資料展開收合...........
+    $('.abtbtn.show').on('click', function() {
+        $('.profolio-about-me-defualt').hide();
+        $('.profolio-about-me-show').show();
+    });
+
+    $('.abtbtn.hide').on('click', function() {
+        $('.profolio-about-me-show').hide();
+        $('.profolio-about-me-defualt').show();
+    });
+
+    //編輯按鈕
+    var editModal = $('.member-edit-modal');
+    $('.edit-btn').click(function() {
+        editModal.addClass('is-visible');
+    });
+    //關掉編輯modal
+
+    editModal.click(function(event) {
+        if ($(event.target).is(editModal)) {
+            editModal.removeClass('is-visible');
+        }
+
+    });
+    $('.form-btn.submit').click(function() {
+        editModal.removeClass('is-visible');
+    });
+    $(document).keyup(function(event) {
+        if (event.which == '27') {
+            editModal.removeClass('is-visible');
+        }
+    });
+
+
+    //新增樂器專長欄位
+    var maxInstruments = 0,
+        instrumentId = 1;
+    $('.form-btn.instruments-plus').on('click', function() {
+        if (maxInstruments >= 5) return;
+        maxInstruments++;
+        $('.member-edit-instruments').append('<input type="text" class="member-input instruments" name="member-instruments' + instrumentId + '" id="member-instruments' + instrumentId + '">');
+        instrumentId++;
+    });
+    //刪除樂器專長欄位
+    $('.form-btn.instruments-minus').on('click', function() {
+        $('.member-input.instruments').last().remove();
+        if (maxInstruments > 0) maxInstruments--;
+        if (instrumentId > 1) instrumentId--;
+    });
+
+
+    //新增個人影音連結
+    var mediaId = 1,
+        maxMedia = 0;
+    $('.form-btn.media-plus').click(function() {
+        if (maxMedia >= 6) return;
+        maxMedia++;
+        $('.member-edit-media').append('<input type="text" class="member-input media" name="member-media' + mediaId + '" id="member-media' + mediaId + '">');
+        mediaId++;
+    });
+    //刪除個人影音連結
+    $('.form-btn.media-minus').on('click', function() {
+        $('.member-input.media').last().remove();
+        if (maxMedia > 0) maxMedia--;
+        if (mediaId > 1) mediaId--;
+    });
+
 
 // ------------------待ajax+servlet整合的function----------------------
 //登入後nav-bar右上角的顯示
