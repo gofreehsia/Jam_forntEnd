@@ -1,7 +1,7 @@
 
 
 //登入畫面
-const agree_to_term="accept-terms";//取得
+const agree_to_term="#accept-terms";//取得
 const btn_login="#login-submit";//一般登入
 const btn_logout="#logOut";//登出(不區分))
 const btn_continueFB="#login-fb";//FB登入
@@ -9,7 +9,7 @@ const btn_register="#reg-submit";//註冊按鈕
 const field_ACC="#signup-email";//帳號欄
 const fieldPW="#signup-password";//密碼欄
 const fieldCPW="#signup-password-confirm";//確認密碼
-const fieldRemember_me="remember-me";//記住我
+const fieldRemember_me="#remember-me";//記住我
 
 
 //會員資料編輯畫面
