@@ -30,7 +30,7 @@ const sta_loggedIn=2;
 const loginURL="";
 const loginFbURL="";
 //cookie 所屬的網域名稱，測試用
-const base_path="";
+//const base_path="";
 const c_loginType="loginType";
 const c_lt_fb="FB";
 const c_lt_normal="normal";
