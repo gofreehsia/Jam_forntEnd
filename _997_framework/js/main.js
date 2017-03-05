@@ -18,11 +18,16 @@ jQuery(document).ready(function($) {
     navRight.on('click', '.login', login_selected);
 
     //close modal
-    formModal.on('click', function(event) {
+    formModal.on('click', removeForm);
+	stater.showOnLogIn=function(){
+		formModal.removeClass('is-visible');
+	};
+	
+	function removeForm(event) {
         if ($(event.target).is(formModal) || $(event.target).is('.close-form')) {
             formModal.removeClass('is-visible');
         }
-    });
+    }
     //close modal when clicking the esc keyboard button
     $(document).keyup(function(event) {
         if (event.which == '27') {
@@ -47,7 +52,7 @@ jQuery(document).ready(function($) {
         login_selected();
     });
     //註冊密碼不符合規則
-
+/*
     signupPassword.on('keyup', this, password_rule);
     signupPassword.on('keyup', this, submit_able);
 
@@ -62,7 +67,7 @@ jQuery(document).ready(function($) {
     //驗證畫面按確認後回到主畫面
     $('.confirm-button').on('click', function() {
         $('.confirm-success').toggleClass('is-visible');
-    });
+    });*/
 
     function login_selected() {
         navRight.removeClass('is-visible');
@@ -159,7 +164,7 @@ function logout_Nav(){
 }
 
 //註冊帳號重複
-
+/*
 signupEmail.on('keyup',function(){
     if ($(this).val() !==''){
         $.ajax({
@@ -182,6 +187,6 @@ function email_repeat(data){
         signupEmail.next('span').removeClass('is-visible');
     }
     
-}
+}*/
 
 });

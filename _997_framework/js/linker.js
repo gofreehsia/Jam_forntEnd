@@ -35,7 +35,10 @@ const c_loginType="loginType";
 const c_lt_fb="FB";
 const c_lt_normal="normal";
 const jam_cookie_key="jamInfo";
-
+const base_url="http://localhost:8080/jamTest";
+const service_login="/login";
+const service_checkACC="/checkAcc";
+const service_register="/register";
 const show_userName="";
 const show_login="";
 
